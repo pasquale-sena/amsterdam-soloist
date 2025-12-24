@@ -4,11 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Amsterdam Soloist</title>
+    
+    <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons (CDN) -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Cutive+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Configuration -->
     <script>
       tailwind.config = {
         theme: {
@@ -24,9 +32,6 @@
               green: '#4A5D44', // Canal Green accent
               faded: '#8C8C8C'  // Secondary text
             },
-            backgroundImage: {
-              'grain': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
-            },
             animation: {
               'fade-in-up': 'fadeInUp 1s ease-out forwards',
             },
@@ -40,12 +45,15 @@
         }
       }
     </script>
+    
+    <!-- Custom CSS -->
     <style>
       body {
         background-color: #FDFBF0;
         scroll-behavior: smooth;
       }
-      /* Subtle noise overlay */
+      
+      /* Subtle noise overlay using SVG filter for performance and no external dependency */
       .bg-grain-overlay {
         position: fixed;
         top: 0;
@@ -57,6 +65,8 @@
         pointer-events: none;
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
       }
+
+      /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 6px;
       }
@@ -67,8 +77,7 @@
         background: #2B2B2B;
       }
     </style>
-<link rel="stylesheet" href="/index.css">
-</head>
+  </head>
   <body class="bg-paper text-ink font-mono antialiased selection:bg-brick selection:text-paper">
     <div class="bg-grain-overlay"></div>
     
@@ -78,8 +87,9 @@
       <div class="absolute inset-0 z-0 opacity-100 pointer-events-none">
          <div class="absolute inset-0 bg-paper/60 mix-blend-overlay z-10"></div>
          <div class="absolute inset-0 bg-gradient-to-t from-paper via-paper/50 to-transparent z-10"></div>
+         <!-- Visual Context -->
          <img 
-            src="/public/assets/hero-coffee.png" 
+            src="https://i.postimg.cc/JhgXctWZ/hero-coffee.png" 
             alt="Cafe table with notebook" 
             class="w-full h-full object-cover object-center grayscale-[0.2] sepia-[0.1]"
          />
@@ -87,7 +97,7 @@
       
       <div class="z-20 text-center max-w-3xl mx-auto space-y-10 animate-fade-in-up mt-12 relative">
         <div class="space-y-4">
-            <h2 class="text-xs md:text-sm tracking-[0.2em] uppercase text-ink/80 font-mono bg-paper/50 inline-block px-2 py-1 backdrop-blur-sm rounded-sm">
+            <h2 class="text-xs md:text-sm tracking-[0.2em] uppercase text-ink/80 font-mono bg-paper/90 inline-block px-2 py-1 backdrop-blur-sm rounded-sm">
             Vol. 1 — The Starter Pack
             </h2>
             
@@ -97,7 +107,7 @@
             </h1>
         </div>
 
-        <div class="max-w-lg mx-auto border-l-2 border-brick pl-6 text-left bg-paper/40 backdrop-blur-sm p-4 rounded-r-lg">
+        <div class="max-w-lg mx-auto border-l-2 border-brick pl-6 text-left bg-paper/80 backdrop-blur-sm p-4 rounded-r-lg">
              <p class="text-sm md:text-base text-ink leading-relaxed font-mono font-medium">
                20 Analog Missions to Reclaim Your Attention in Amsterdam.
              </p>
@@ -142,7 +152,7 @@
         <div class="relative aspect-[3/4] p-4 md:p-8 flex items-center justify-center order-1 md:order-2">
              <div class="absolute inset-0 bg-ink/5 transform rotate-2 rounded-xl"></div>
              <img 
-                src="/assets/card-crossing.png" 
+                src="https://i.postimg.cc/76KZMW7r/Asset-6-3x.png" 
                 alt="The Crossing Card Illustration" 
                 class="relative z-10 w-full h-auto max-w-md shadow-xl rounded-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-700 ease-out"
              />
@@ -205,10 +215,10 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-ink/10">
           
-          <!-- Suit 1 -->
+          <!-- Suit 1: Observer -->
           <div class="group p-8 border-r border-b border-ink/10 hover:bg-white/40 transition-colors duration-500 min-h-[400px] flex flex-col justify-between relative overflow-hidden">
               <div class="w-full aspect-[4/5] mb-6 overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-all duration-500">
-                  <img src="/assets/suit-observer.png" alt="The Observer" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale-[0.1] group-hover:grayscale-0" />
+                  <img src="https://i.postimg.cc/sxGw9b8h/Observer.png" alt="The Observer" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale-[0.1] group-hover:grayscale-0" />
               </div>
               <div>
                   <span class="font-mono text-[10px] uppercase tracking-widest block mb-2 text-ink/40">Suit 01</span>
@@ -220,10 +230,10 @@
               </p>
           </div>
 
-          <!-- Suit 2 -->
+          <!-- Suit 2: Explorer -->
           <div class="group p-8 border-r border-b border-ink/10 hover:bg-white/40 transition-colors duration-500 min-h-[400px] flex flex-col justify-between relative overflow-hidden">
               <div class="w-full aspect-[4/5] mb-6 overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-all duration-500">
-                  <img src="/assets/suit-explorer.png" alt="The Explorer" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale-[0.1] group-hover:grayscale-0" />
+                  <img src="https://i.postimg.cc/vTx3LCj9/Explorer.png" alt="The Explorer" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale-[0.1] group-hover:grayscale-0" />
               </div>
               <div>
                   <span class="font-mono text-[10px] uppercase tracking-widest block mb-2 text-ink/40">Suit 02</span>
@@ -235,10 +245,10 @@
               </p>
           </div>
 
-          <!-- Suit 3 -->
+          <!-- Suit 3: Botanist -->
           <div class="group p-8 border-r border-b border-ink/10 hover:bg-white/40 transition-colors duration-500 min-h-[400px] flex flex-col justify-between relative overflow-hidden">
               <div class="w-full aspect-[4/5] mb-6 overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-all duration-500">
-                  <img src="/assets/suit-botanist.png" alt="The Botanist" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale-[0.1] group-hover:grayscale-0" />
+                  <img src="https://i.postimg.cc/90wJtsSH/Botanist.png" alt="The Botanist" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale-[0.1] group-hover:grayscale-0" />
               </div>
               <div>
                   <span class="font-mono text-[10px] uppercase tracking-widest block mb-2 text-ink/40">Suit 03</span>
@@ -250,10 +260,10 @@
               </p>
           </div>
 
-          <!-- Suit 4 -->
+          <!-- Suit 4: Connoisseur -->
           <div class="group p-8 border-r border-b border-ink/10 hover:bg-white/40 transition-colors duration-500 min-h-[400px] flex flex-col justify-between relative overflow-hidden">
               <div class="w-full aspect-[4/5] mb-6 overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-all duration-500">
-                  <img src="/assets/suit-connoisseur.png" alt="The Connoisseur" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale-[0.1] group-hover:grayscale-0" />
+                  <img src="https://i.postimg.cc/J0HPcSgZ/Connoisseur.png" alt="The Connoisseur" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale-[0.1] group-hover:grayscale-0" />
               </div>
               <div>
                   <span class="font-mono text-[10px] uppercase tracking-widest block mb-2 text-ink/40">Suit 04</span>
@@ -293,7 +303,7 @@
             <div class="w-full md:w-1/3">
                  <div class="aspect-[3/4] relative p-2 flex items-center justify-center border border-ink/10 bg-white shadow-sm rotate-1 hover:rotate-0 transition-transform duration-500">
                      <img 
-                        src="/assets/card-texture.png" 
+                        src="https://i.postimg.cc/JhgXctWN/card-texture.png" 
                         alt="Product Detail Texture" 
                         class="w-full h-full object-cover"
                      />
@@ -363,6 +373,5 @@
       // Set Year
       document.getElementById('year').textContent = new Date().getFullYear();
     </script>
-  <script type="module" src="/index.tsx"></script>
 </body>
 </html>
