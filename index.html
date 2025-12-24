@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Amsterdam Soloist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Cutive+Mono&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', 'serif'],
+              mono: ['"Cutive Mono"', 'monospace'],
+            },
+            colors: {
+              paper: '#FDFBF0', // Warm Cream / Bio Top
+              ink: '#2B2B2B',   // Deep Charcoal
+              brick: '#A64B2A', // Brick Red accent
+              green: '#4A5D44', // Canal Green accent
+              faded: '#8C8C8C'  // Secondary text
+            },
+            backgroundImage: {
+              'grain': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 1s ease-out forwards',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #FDFBF0;
+        scroll-behavior: smooth;
+      }
+      /* Subtle noise overlay */
+      .bg-grain-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.4;
+        z-index: -1;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #FDFBF0;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2B2B2B;
+      }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-paper text-ink font-mono antialiased selection:bg-brick selection:text-paper">
+    <div class="bg-grain-overlay"></div>
+    
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center p-6 md:p-12 overflow-hidden border-b border-ink/10">
+      <!-- Visual Context -->
+      <div class="absolute inset-0 z-0 opacity-100 pointer-events-none">
+         <div class="absolute inset-0 bg-paper/60 mix-blend-overlay z-10"></div>
+         <div class="absolute inset-0 bg-gradient-to-t from-paper via-paper/50 to-transparent z-10"></div>
+         <img 
+            src="/assets/hero-coffee.png" 
+            alt="Cafe table with notebook" 
+            class="w-full h-full object-cover object-center grayscale-[0.2] sepia-[0.1]"
+         />
+      </div>
+      
+      <div class="z-20 text-center max-w-3xl mx-auto space-y-10 animate-fade-in-up mt-12 relative">
+        <div class="space-y-4">
+            <h2 class="text-xs md:text-sm tracking-[0.2em] uppercase text-ink/80 font-mono bg-paper/50 inline-block px-2 py-1 backdrop-blur-sm rounded-sm">
+            Vol. 1 — The Starter Pack
+            </h2>
+            
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-ink tracking-tight leading-[0.9] drop-shadow-sm">
+            A Deck for the<br />
+            <span class="italic font-light text-brick">Company of Yourself.</span>
+            </h1>
+        </div>
+
+        <div class="max-w-lg mx-auto border-l-2 border-brick pl-6 text-left bg-paper/40 backdrop-blur-sm p-4 rounded-r-lg">
+             <p class="text-sm md:text-base text-ink leading-relaxed font-mono font-medium">
+               20 Analog Missions to Reclaim Your Attention in Amsterdam.
+             </p>
+        </div>
+
+        <div class="pt-8">
+          <button 
+            onclick="document.getElementById('shop').scrollIntoView({ behavior: 'smooth' })"
+            class="group relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-mono text-xs uppercase tracking-widest text-ink transition duration-300 ease-out border border-ink bg-paper/80 backdrop-blur-sm hover:bg-brick hover:border-brick hover:text-paper shadow-lg cursor-pointer"
+          >
+            Order The Starter Pack
+          </button>
+        </div>
+      </div>
+      
+      <div class="absolute bottom-8 text-[10px] uppercase tracking-widest text-ink/60 font-mono z-20">
+        Field Guide No. 001
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY SECTION -->
+    <section class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-b border-ink/10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <!-- Text -->
+        <div class="space-y-8 order-2 md:order-1">
+          <h2 class="text-4xl md:text-5xl font-serif text-ink leading-tight">
+            You are always reachable, <br/>
+            <span class="italic text-ink/60">but are you ever really here?</span>
+          </h2>
+          
+          <div class="space-y-6 text-sm md:text-base font-mono text-ink/80 leading-loose">
+            <p>
+              We walk through the most beautiful city in the world, but we see it through a 6-inch screen. The 'Third Place'—our cafes, parks, and canals—has been colonized by the algorithm.
+            </p>
+            <p>
+              The Amsterdam Soloist is a tool for active solitude. It is your permission slip to disappear, disconnect, and turn "being alone" into an art form.
+            </p>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="relative aspect-[3/4] p-4 md:p-8 flex items-center justify-center order-1 md:order-2">
+             <div class="absolute inset-0 bg-ink/5 transform rotate-2 rounded-xl"></div>
+             <img 
+                src="/assets/card-crossing.png" 
+                alt="The Crossing Card Illustration" 
+                class="relative z-10 w-full h-auto max-w-md shadow-xl rounded-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-700 ease-out"
+             />
+        </div>
+      </div>
+    </section>
+
+    <!-- THE RITUAL SECTION -->
+    <section class="py-24 px-6 bg-paper border-b border-ink/10">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-serif mb-4">The Ritual</h2>
+          <div class="w-12 h-px bg-brick mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <!-- Step 1 -->
+            <div class="flex flex-col items-center text-center space-y-6">
+                <div class="w-16 h-16 border border-ink rounded-full flex items-center justify-center text-ink mb-2">
+                    <i data-lucide="layers" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-serif text-2xl italic">01. The Draw</h3>
+                <p class="font-mono text-sm leading-relaxed max-w-xs text-ink/70">
+                    Pick a card. This is your mission for the next hour. No skipping. Trust the direction.
+                </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="flex flex-col items-center text-center space-y-6">
+                <div class="w-16 h-16 border border-ink rounded-full flex items-center justify-center text-ink mb-2">
+                    <i data-lucide="eye-off" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-serif text-2xl italic">02. The Vanishing</h3>
+                <p class="font-mono text-sm leading-relaxed max-w-xs text-ink/70">
+                    Phone away. Notifications off. The world can wait while you watch the water.
+                </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="flex flex-col items-center text-center space-y-6">
+                <div class="w-16 h-16 border border-ink rounded-full flex items-center justify-center text-ink mb-2">
+                    <i data-lucide="pen-tool" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-serif text-2xl italic">03. The Output</h3>
+                <p class="font-mono text-sm leading-relaxed max-w-xs text-ink/70">
+                    Sketch, write, or document the moment on the back of the card. Create proof of life.
+                </p>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUIT SHOWCASE SECTION -->
+    <section class="py-24 px-6 border-b border-ink/10">
+      <div class="max-w-7xl mx-auto">
+        <div class="mb-16 md:pl-8">
+          <h2 class="text-4xl font-serif mb-2">The Four Suits</h2>
+          <p class="font-mono text-xs uppercase tracking-widest text-ink/50">Zonal Guides</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-ink/10">
+          
+          <!-- Suit 1 -->
+          <div class="group p-8 border-r border-b border-ink/10 hover:bg-white/40 transition-colors duration-500 min-h-[400px] flex flex-col justify-between relative overflow-hidden">
+              <div class="w-full aspect-[4/5] mb-6 overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-all duration-500">
+                  <img src="/assets/suit-observer.png" alt="The Observer" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale-[0.1] group-hover:grayscale-0" />
+              </div>
+              <div>
+                  <span class="font-mono text-[10px] uppercase tracking-widest block mb-2 text-ink/40">Suit 01</span>
+                  <h3 class="font-serif text-2xl mb-1 text-brick">The Observer</h3>
+                  <div class="font-mono text-[10px] uppercase tracking-wider text-ink mb-4">Centre & Jordaan</div>
+              </div>
+              <p class="font-mono text-xs leading-relaxed text-ink/70">
+                  "Slow down and catalogue the details. Seeing the unseen."
+              </p>
+          </div>
+
+          <!-- Suit 2 -->
+          <div class="group p-8 border-r border-b border-ink/10 hover:bg-white/40 transition-colors duration-500 min-h-[400px] flex flex-col justify-between relative overflow-hidden">
+              <div class="w-full aspect-[4/5] mb-6 overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-all duration-500">
+                  <img src="/assets/suit-explorer.png" alt="The Explorer" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale-[0.1] group-hover:grayscale-0" />
+              </div>
+              <div>
+                  <span class="font-mono text-[10px] uppercase tracking-widest block mb-2 text-ink/40">Suit 02</span>
+                  <h3 class="font-serif text-2xl mb-1 text-green">The Explorer</h3>
+                  <div class="font-mono text-[10px] uppercase tracking-wider text-ink mb-4">Noord & The IJ</div>
+              </div>
+              <p class="font-mono text-xs leading-relaxed text-ink/70">
+                  "Face the wind and find the unknown path. Industrial texture."
+              </p>
+          </div>
+
+          <!-- Suit 3 -->
+          <div class="group p-8 border-r border-b border-ink/10 hover:bg-white/40 transition-colors duration-500 min-h-[400px] flex flex-col justify-between relative overflow-hidden">
+              <div class="w-full aspect-[4/5] mb-6 overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-all duration-500">
+                  <img src="/assets/suit-botanist.png" alt="The Botanist" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale-[0.1] group-hover:grayscale-0" />
+              </div>
+              <div>
+                  <span class="font-mono text-[10px] uppercase tracking-widest block mb-2 text-ink/40">Suit 03</span>
+                  <h3 class="font-serif text-2xl mb-1 text-ink">The Botanist</h3>
+                  <div class="font-mono text-[10px] uppercase tracking-wider text-ink mb-4">Parks & Old West</div>
+              </div>
+              <p class="font-mono text-xs leading-relaxed text-ink/70">
+                  "Nature, rhythm, and grounding. Patience in the green."
+              </p>
+          </div>
+
+          <!-- Suit 4 -->
+          <div class="group p-8 border-r border-b border-ink/10 hover:bg-white/40 transition-colors duration-500 min-h-[400px] flex flex-col justify-between relative overflow-hidden">
+              <div class="w-full aspect-[4/5] mb-6 overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-all duration-500">
+                  <img src="/assets/suit-connoisseur.png" alt="The Connoisseur" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 grayscale-[0.1] group-hover:grayscale-0" />
+              </div>
+              <div>
+                  <span class="font-mono text-[10px] uppercase tracking-widest block mb-2 text-ink/40">Suit 04</span>
+                  <h3 class="font-serif text-2xl mb-1 text-ink">The Connoisseur</h3>
+                  <div class="font-mono text-[10px] uppercase tracking-wider text-ink mb-4">De Pijp & East</div>
+              </div>
+              <p class="font-mono text-xs leading-relaxed text-ink/70">
+                  "Taste, smell, and the art of the 'Borrel'. Sensory intimacy."
+              </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- THE SPECS SECTION -->
+    <section class="py-24 px-6 md:px-12 max-w-4xl mx-auto">
+        <div class="flex flex-col md:flex-row gap-12 items-start">
+            <div class="flex-1">
+                <h2 class="text-4xl font-serif mb-8">Built for the Field.</h2>
+                <div class="space-y-6 font-mono text-sm text-ink/80">
+                    <div class="flex border-b border-ink/10 pb-4">
+                        <span class="w-32 text-ink/40 uppercase text-xs tracking-wider">The Cards</span>
+                        <span class="flex-1">21 x A7 Cards. 300gsm Bio Top Cream paper. Uncoated and writable.</span>
+                    </div>
+                    <div class="flex border-b border-ink/10 pb-4">
+                        <span class="w-32 text-ink/40 uppercase text-xs tracking-wider">The Tool</span>
+                        <span class="flex-1">Includes mini ballpoint pen for easy storage and travel.</span>
+                    </div>
+                    <div class="flex border-b border-ink/10 pb-4">
+                        <span class="w-32 text-ink/40 uppercase text-xs tracking-wider">The Origin</span>
+                        <span class="flex-1">Printed and assembled locally in Amsterdam.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/3">
+                 <div class="aspect-[3/4] relative p-2 flex items-center justify-center border border-ink/10 bg-white shadow-sm rotate-1 hover:rotate-0 transition-transform duration-500">
+                     <img 
+                        src="/assets/card-texture.png" 
+                        alt="Product Detail Texture" 
+                        class="w-full h-full object-cover"
+                     />
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE SHOP SECTION -->
+    <section id="shop" class="py-24 px-6 bg-ink text-paper text-center">
+      <div class="max-w-2xl mx-auto space-y-8">
+        <div class="space-y-2">
+            <h2 class="text-xs md:text-sm tracking-[0.3em] uppercase text-paper/60 font-mono">
+                Now Available
+            </h2>
+            <h1 class="text-4xl md:text-6xl font-serif text-paper">
+                Vol. 1: The Starter Pack
+            </h1>
+        </div>
+
+        <div class="text-3xl font-serif text-brick">
+            €24.50
+        </div>
+
+        <p class="font-mono text-xs text-paper/50 uppercase tracking-widest border border-paper/20 inline-block px-4 py-2">
+            Limited First Run: Only 10 Left
+        </p>
+
+        <div class="pt-8">
+            <button class="w-full md:w-auto bg-paper text-ink px-12 py-4 font-mono text-sm uppercase tracking-widest hover:bg-brick hover:text-paper transition-colors duration-300 cursor-pointer">
+                Add To Cart
+            </button>
+            <p class="mt-6 text-xs font-mono text-paper/40">
+                Free local pickup available in Amsterdam.
+            </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-paper text-ink py-16 px-6 border-t border-ink/10">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
+        
+        <div class="text-center md:text-left space-y-4">
+            <h3 class="font-serif text-2xl italic">The Amsterdam Soloist</h3>
+            <p class="font-mono text-xs text-ink/60 max-w-xs">
+                The City is Yours.<br/>Take Yourself on a Date.
+            </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8 font-mono text-xs uppercase tracking-widest text-ink/70">
+            <a href="#" class="hover:text-brick transition-colors">Instagram</a>
+            <a href="#" class="hover:text-brick transition-colors">Contact</a>
+            <span class="opacity-50">Waitlist Vol. 2</span>
+        </div>
+
+      </div>
+      <div class="text-center mt-12 text-[10px] font-mono text-ink/30 uppercase">
+        &copy; <span id="year"></span> The Amsterdam Soloist.
+      </div>
+    </footer>
+
+    <script>
+      // Initialize Lucide Icons
+      lucide.createIcons();
+      
+      // Set Year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
